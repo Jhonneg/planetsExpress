@@ -3,10 +3,7 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch server.js"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
+    "start": "node --watch ."
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
