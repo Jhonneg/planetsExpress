@@ -1,0 +1,16 @@
+{
+  "name": "planets-express-project-api",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch ./src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "API for Planets Express project",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
