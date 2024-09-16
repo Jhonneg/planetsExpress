@@ -2,4 +2,4 @@
 
 # **Tech Stack**
 
-![](https://skillicons.dev/icons?i=nodejs,express,react)
+![](https://skillicons.dev/icons?i=nodejs,express,react,mongo)

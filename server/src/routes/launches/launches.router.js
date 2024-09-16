@@ -1,5 +1,7 @@
-import { launches } from "../../models/launches.model.js";
+import express from "express";
+import { httpGetAllLaunches, httpAddNewLaunch } from "./launches.controller.js";
 
-export function getAllLaunches(req, res) {
-  return res.status(200).json(Array.from(launches.values()));
-}
+export const launcherRouter = express.Router();
+
+launcherRouter.get("/", httpGetAllLaunches);
+launcherRouter.post("/", httpAddNewLaunch);
