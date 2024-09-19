@@ -13,6 +13,7 @@ const launch = {
   success: true,
 };
 
+
 export function existsLaunchWithId(launchId) {
   return launches.has(launchId);
 }
