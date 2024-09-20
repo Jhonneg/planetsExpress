@@ -1,15 +1,12 @@
-import express from "express";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
-import cors from "cors";
-import { planetsRouter } from "./routes/planets/planets.router.js";
-import morgan from "morgan";
-import { launcherRouter } from "./routes/launches/launches.router.js";
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const { planetsRouter } = require("./routes/planets/planets.router");
+const morgan = require("morgan");
+const { launcherRouter } = require("./routes/launches/launches.router");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-export const app = express();
+const app = express();
 
 app.use(
   cors({
@@ -25,3 +22,5 @@ app.use("/launches", launcherRouter);
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
+
+module.exports = app;

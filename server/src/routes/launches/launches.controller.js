@@ -1,15 +1,15 @@
-import {
+const {
   getAllLaunches,
   addNewLaunch,
   existsLaunchWithId,
   abortLaunchById,
-} from "../../models/launches.model.js";
+} = require("../../models/launches.model"); 
 
-export function httpGetAllLaunches(req, res) {
+function httpGetAllLaunches(req, res) {
   return res.status(200).json(getAllLaunches());
 }
 
-export function httpAbortLaunch(req, res) {
+function httpAbortLaunch(req, res) {
   const launchId = Number(req.params.id);
 
   if (!existsLaunchWithId(launchId)) {
@@ -22,7 +22,7 @@ export function httpAbortLaunch(req, res) {
   return res.status(200).json(aborted);
 }
 
-export function httpAddNewLaunch(req, res) {
+function httpAddNewLaunch(req, res) {
   const launch = req.body;
 
   if (
@@ -45,3 +45,9 @@ export function httpAddNewLaunch(req, res) {
   addNewLaunch(launch);
   return res.status(201).json(launch);
 }
+
+module.exports = {
+  httpGetAllLaunches,
+  httpAddNewLaunch,
+  httpAbortLaunch,
+};

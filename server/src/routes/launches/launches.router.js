@@ -1,12 +1,14 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   httpGetAllLaunches,
   httpAddNewLaunch,
   httpAbortLaunch,
-} from "./launches.controller.js";
+} = require("./launches.controller");
 
-export const launcherRouter = express.Router();
+const launcherRouter = express.Router();
 
 launcherRouter.get("/", httpGetAllLaunches);
 launcherRouter.post("/", httpAddNewLaunch);
 launcherRouter.delete("/:id", httpAbortLaunch);
+
+module.exports = { launcherRouter }; 
