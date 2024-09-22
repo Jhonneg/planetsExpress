@@ -5,19 +5,8 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "dev": "node --watch ./src/server.js"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "mjs",
-      "json",
-      "node"
-    ]
+    "dev": "node --watch ./src/server.js",
+    "cluster": "pm2 start src/server.js -i max"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +16,8 @@
     "cors": "^2.8.5",
     "csv-parse": "^5.5.6",
     "express": "^4.19.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pm2": "^5.4.2"
   },
   "devDependencies": {
     "jest": "^29.7.0",
