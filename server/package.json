@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "description": "API for Planets Express project",
   "dependencies": {
     "cors": "^2.8.5",
