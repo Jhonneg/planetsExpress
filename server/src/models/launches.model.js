@@ -4,19 +4,6 @@ const planets = require("./planets.mongo");
 
 const DEFAULT_FLIGHT_NUMBER = 100;
 
-const launch = {
-  flightNumber: 100,
-  mission: "Keplex Exploration X",
-  rocket: "Explorer IS1",
-  launchDate: new Date("December 27, 2030"),
-  target: "Kepler-442 b",
-  costumers: ["Bidu", "NASA"],
-  upcoming: true,
-  success: true,
-};
-
-saveLaunch(launch);
-
 const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 
 async function populateLaunches() {
@@ -52,8 +39,8 @@ async function populateLaunches() {
 
   for (const launchDoc of launchDocs) {
     const payloads = launchDoc["payloads"];
-    const costumers = payloads.flatMap((payload) => {
-      return payload["costumers"];
+    const customers = payloads.flatMap((payload) => {
+      return payload["customers"];
     });
 
     const launch = {
@@ -63,7 +50,7 @@ async function populateLaunches() {
       launchDate: launchDoc["date_local"],
       upcoming: launchDoc["upcoming"],
       success: launchDoc["success"],
-      costumers,
+      customers,
     };
 
     console.log(`${launch.flightNumber} ${launch.mission}`);
@@ -114,6 +101,7 @@ async function getAllLaunches(skip, limit) {
         __v: 0,
       }
     )
+    .sort({ flightNumber: 1 })
     .skip(skip)
     .limit(limit);
 }
@@ -144,7 +132,7 @@ async function scheduleNewLaunch(launch) {
   const newLaunch = Object.assign(launch, {
     success: true,
     upcoming: true,
-    costumers: ["Bidu", "NASA"],
+    custumers: ["Bidu", "NASA"],
     flightNumber: newFlightNumber,
   });
 
