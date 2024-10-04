@@ -4,7 +4,7 @@
   "description": "Express Planets project",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd server && bun install",
+    "install-server": "npm install install --prefix server",
     "install-client": "npm install --prefix client",
     "install": "npm run install-server && npm run install-client",
     "server": "npm run dev --prefix server",
