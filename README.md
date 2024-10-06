@@ -7,7 +7,7 @@ This project was built to showcase advanced Node.js and general backend developm
 
 The app allows the user to see the latest space flights launched by Space X by directily fetching data from a Space X API.
 
-It also allows the use to create and delete new flights, all stored in a MongoDB instance.
+It also allows the user to create and delete new flights, all stored in a MongoDB instance.
 
 
 ![image](https://github.com/user-attachments/assets/da401aa6-161c-4197-a8ce-dcdb17edf7c4)
